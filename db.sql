@@ -1,0 +1,23 @@
+CREATE DATABASE cicci;
+
+USE cicci;
+
+CREATE TABLE IF NOT EXISTS gabbia
+(
+    id   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(64) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS animale
+(
+    id     INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome   VARCHAR(64) NOT NULL,
+    gabbia INT         NOT NULL REFERENCES gabbia (id)
+);
+
+CREATE TABLE IF NOT EXISTS utente
+(
+    id       INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome     VARCHAR(64) NOT NULL UNIQUE,
+    password VARCHAR(64) NOT NULL
+);
